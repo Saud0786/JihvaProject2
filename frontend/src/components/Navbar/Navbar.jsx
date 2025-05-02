@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Navbar.css'
 import {assets} from '../../assets/assets'
 import {Link, useNavigate} from 'react-router-dom'
@@ -14,12 +14,22 @@ function Navbar({setShowLogin,setSearchQuery,searchQuery}) {
     setToken("");
     navigate("/")
   }
+  useEffect(() => {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
 
   return (
     <div className='navbar'>
       <div className='theme'>
       <Link to='/'> <img src={assets.logo} alt="" className="logo"/></Link>
-      <button onClick={() => { document.body.classList.toggle('dark-mode');}}>☀</button>
+      <button onClick={() => {
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }}>☀</button>
       </div>
       
        <ul className='navbar-menu'>
