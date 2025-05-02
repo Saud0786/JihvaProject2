@@ -8,7 +8,6 @@
   width: 250px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   gap: 20px;
 }
 
@@ -158,6 +157,7 @@
 
 
 @media (max-width:750px){
+  
   
   .navbar-menu{
     display: none;
