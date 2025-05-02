@@ -20,7 +20,7 @@ const App = () => {
          <Routes>
           <Route path='/' element={<Home setSearchQuery={setSearchQuery} searchQuery={searchQuery}/>} />
           <Route path='/cart' element={<Cart/>} />
-          <Route path='/order' element={<PlaceOder/>} />
+          <Route path='/order' element={<PlaceOder setShowLogin={setShowLogin}/>} />
           <Route path='/verify'element={<Verify/>}/>
           <Route path='/myorders' element={<MyOrders/>}/>
          </Routes>

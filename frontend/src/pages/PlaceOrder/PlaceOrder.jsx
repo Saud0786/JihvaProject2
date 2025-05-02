@@ -4,7 +4,7 @@ import { StoreContext } from '../../components/context/StoreContext'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-function PlaceOrder() {
+function PlaceOrder({setShowLogin}) {
   const  navigate=useNavigate();
   const {getTotalCartAmount,token,food_list,cartItems,url}=useContext(StoreContext)
 
@@ -59,6 +59,7 @@ function PlaceOrder() {
    useEffect(()=>{
     if(!token){
       navigate('/cart')
+      setShowLogin(true)
     }else if(getTotalCartAmount()===0){
       navigate('/cart')
     }
